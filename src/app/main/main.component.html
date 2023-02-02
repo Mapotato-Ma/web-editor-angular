@@ -1,0 +1,9 @@
+<div class="main">
+  <div class="main-left">左侧工具箱</div>
+  <div class="main-container" (dragenter)="dragenter($event)" (dragover)="dragover($event)">
+    <div id="handle-dom" [draggable]="true" (dragstart)="dragstart($event)" (dragend)="dragend($event)"
+      (drag)="domDrag($event)" [ngStyle]="style">
+    </div>
+  </div>
+  <div class="main-right">右侧属性栏</div>
+</div>
