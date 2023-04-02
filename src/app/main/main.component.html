@@ -1,13 +1,17 @@
 <div class="main">
-  <div class="main-left">
+  <div [class]="{ 'main-left': true }">
     <app-main-left></app-main-left>
   </div>
-  <div class="main-right">
+  <div [class]="{ 'main-right': true }">
     <app-main-right></app-main-right>
   </div>
-  <div class="main-container" (dragenter)="dragenter($event)" (dragover)="dragover($event)">
-    <div id="handle-dom" [draggable]="true" (dragstart)="dragstart($event)" (dragend)="dragend($event)"
-      (drag)="domDrag($event)" [ngStyle]="style">
+  <div class="main-container">
+    <div *ngFor="let layer of layerList">
+      <div [ngSwitch]="layer.layerType">
+        <div class="layer" *ngSwitchCase="componentLayerType['矩形']">
+          <app-component-square [commonStyle]="layer.commonStyle" [style]="layer.style"></app-component-square>
+        </div>
+      </div>
     </div>
   </div>
 </div>

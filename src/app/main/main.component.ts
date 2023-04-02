@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LAYER } from 'app/common/common-api/layer.api';
+import { commonStyle } from 'app/common/services/common.service';
 
 @Component({
   selector: 'app-main',
@@ -6,36 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  private fixLeft: boolean = false;
-  private fixRight: boolean = false;
+  componentLayerType = LAYER.layerType;
 
-  style: Record<string, string> = {
-    top: '0',
-    left: '0',
-  };
-
-  startOffset: number[] = [0, 0];
+  layerList: LAYER.layerList = [
+    {
+      id: '1561515151',
+      name: '矩形',
+      layerType: this.componentLayerType.矩形,
+      commonStyle: new commonStyle({ width: 100, height: 50, top: 500, left: 500 }),
+      style: {
+        borderWidth: 20,
+      },
+    },
+  ];
 
   ngOnInit(): void {}
-
-  dragenter(event: DragEvent) {
-    event.preventDefault();
-  }
-  dragover(event: DragEvent) {
-    event.preventDefault();
-  }
-
-  domDrag(event: DragEvent) {
-    this.style['top'] = `${event.y - this.startOffset[0]}px`;
-    this.style['left'] = `${event.x - this.startOffset[1]}px`;
-  }
-  dragend(event: DragEvent) {
-    this.style['top'] = `${event.y - this.startOffset[0]}px`;
-    this.style['left'] = `${event.x - this.startOffset[1]}px`;
-  }
-
-  dragstart(event: DragEvent) {
-    this.startOffset[0] = event.offsetY;
-    this.startOffset[1] = event.offsetX;
-  }
 }

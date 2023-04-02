@@ -1,0 +1,1 @@
+export const addPx = (string: string | number):string => `${string}px`;

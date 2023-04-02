@@ -1,0 +1,18 @@
+.drag {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  border: 1px solid rgb(0, 221, 255);
+  .d-point {
+    cursor: nesw-resize;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #fff;
+    background-color: rgb(0, 221, 255);
+  }
+  .d-start-start,
+  .d-end-end {
+    cursor: nwse-resize;
+  }
+}

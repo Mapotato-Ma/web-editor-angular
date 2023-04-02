@@ -1,0 +1,38 @@
+<div
+  class="drag"
+  [ngStyle]="{
+    'width.px': style.width + 2,
+    'height.px': style.height + 2,
+    'top.px': style.top - 1,
+    'left.px': style.left - 1
+  }"
+>
+  <div
+    class="d-point d-start-start"
+    [ngStyle]="{
+      'top.px': -4,
+      'left.px': -4
+    }"
+  ></div>
+  <div
+    class="d-point d-start-end"
+    [ngStyle]="{
+      'top.px': -4,
+      'left.px': style.width - 4
+    }"
+  ></div>
+  <div
+    class="d-point d-end-start"
+    [ngStyle]="{
+      'top.px': style.height - 4,
+      'left.px': -4
+    }"
+  ></div>
+  <div
+    class="d-point d-end-end"
+    [ngStyle]="{
+      'top.px': style.height - 4,
+      'left.px': style.width - 4
+    }"
+  ></div>
+</div>
